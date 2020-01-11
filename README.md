@@ -36,7 +36,7 @@ I made use of cross entropy loss with label smoothing as implemented [here](http
 
     $ git clone https://github.com/etetteh/sota-data-augmentation-and-optimizers
     $ cd sota-data-augmentation-and-optimizers
-    $ pip install -r requirement.txt
+    $ pip install -r requirements.txt
 
 ## Implementation
 ### Sample Notebook
