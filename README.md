@@ -4,7 +4,7 @@ This repository contains some of the latest data augmentation techniques and opt
 ## Data Augmentation Technique
 This repository implements the following data augmentation techniques. The links to the pappers and and pytorch code references are associated accordingly (some with slight modification).
 
-CutOut ([Improved Regularization of Convolutional Neural Networks with Cutout](https://arxiv.org/pdf/1708.04552.pdf, [code](https://github.com/uoguelph-mlrg/Cutout))
+CutOut ([Improved Regularization of Convolutional Neural Networks with Cutout](https://arxiv.org/pdf/1708.04552.pdf), [code](https://github.com/uoguelph-mlrg/Cutout))
 
 AutoAugment ([AutoAugment: Learning Augmentation Policies from Data](https://arxiv.org/abs/1805.09501v1), [code](https://github.com/DeepVoltaire/AutoAugment))
 
