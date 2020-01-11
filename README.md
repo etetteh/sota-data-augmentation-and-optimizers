@@ -40,7 +40,9 @@ I made use of cross entropy loss with label smoothing as implemented [here](http
 
 ## Implementation
 ### Sample Notebook
-The [sample_notenook.ipynb] contains code to play with the various augmentaion and optimizer techniques. Simply comment or uncomment appropriate lines.
+The [sample_notenook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/sample_notebook.ipynb) and [isda_sample_notebook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/isda_sample_notebook.ipynb) contains code to play with the various augmentaion and optimizer techniques for non-isda and isda implementations. Simply comment or uncomment appropriate lines.
+
+The [train.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/train.ipynb) contains sample bash scripts.
 
 
 ### Scripts
