@@ -52,7 +52,7 @@ parser.add_argument('--epochs', '-e', default=50, type=int, help='Number of trai
 parser.add_argument('--num_workers', default=4, type=int, help='Number of CPUs.')
 parser.add_argument('--batch_size', '-bs', default=4, type=int, help='input batch size for training.')
 parser.add_argument('--learning_rate', '-lr', default=1e-3, type=int, help='learning rate.')
-parser.add_argument('--weight_decay', '-wd', default=0, type=int, help='weight_decay.')
+parser.add_argument('--weight_decay', '-wd', default=0, type=float, help='weight_decay.')
 parser.add_argument('--print_freq', '-pf', default=100, type=int, help='Number of iterations to print out results')
 parser.add_argument('--seed', default=65, type=int, help='random seed')
 args = parser.parse_args()
