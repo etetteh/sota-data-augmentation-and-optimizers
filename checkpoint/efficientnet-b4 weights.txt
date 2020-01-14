@@ -1,0 +1,1 @@
+# Download weights from 'efficientnet-b4': 'http://storage.googleapis.com/public-models/efficientnet/efficientnet-b4-6ed6700e.pth'
