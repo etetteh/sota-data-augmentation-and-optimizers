@@ -1,6 +1,9 @@
 # sota-data-augmentation-and-optimizers
 This repository contains some of the latest data augmentation techniques and optimizers for image classification using pytorch and the CIFAR10 dataset
 
+## Update (Tue January, 14 2020)
+The main update was adding [efficient-b4](https://github.com/lukemelas/EfficientNet-PyTorch/) described in [Efficient](https://arxiv.org/abs/1905.11946) and made it the main model for the bash scripts. The sample notebooks were modified to make use of the custom model. Also added the link to the pre-trained weights of efficientnet-b4, located in [checkpoint](https://github.com/etetteh/sota-data-augmentation-and-optimizers/tree/master/checkpoint)
+
 ## Data Augmentation Technique
 This repository implements the following data augmentation techniques. The links to the pappers and and pytorch code references are associated accordingly (some with slight modification).
 
@@ -14,7 +17,7 @@ AugMix ([AugMix: A Simple Data Processing Method to Improve Robustness and Uncer
 
 ISDA ([Implicit Semantic Data Augmentation for Deep Networks](https://arxiv.org/pdf/1909.12220v4.pdf), [code](https://github.com/blackfeather-wang/ISDA-for-Deep-Networks))
 
-## Architecture
+## Architecture (sample notebooks)
 Custom convolutional neural network model that makes use of depthwise convolution and [squeeze-and-excitation](https://arxiv.org/pdf/1709.01507v4.pdf) and the [mish](https://arxiv.org/pdf/1908.08681v2.pdf) activation function.
 
 You may use any model of choice, but slight modification is needed in order to implement ISDA.
