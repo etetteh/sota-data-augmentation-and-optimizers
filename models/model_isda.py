@@ -71,10 +71,10 @@ class CustomModel(nn.Module):
 class Full_layer(torch.nn.Module):
     '''explicitly define the full connected layer'''
 
-    def __init__(self, feature_num, class_num):
+    def __init__(self, num_feature, num_classes):
         super(Full_layer, self).__init__()
-        self.class_num = class_num
-        self.fc = nn.Linear(feature_num, class_num)
+        self.class_num = num_classes
+        self.fc = nn.Linear(num_feature, num_classes)
 
     def forward(self, x):
         x = self.fc(x)

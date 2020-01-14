@@ -10,6 +10,7 @@ import argparse
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils import model_zoo
 
 #data transforms
 from torchvision    import datasets, transforms
@@ -30,9 +31,9 @@ from optim.lookahead  import Lookahead
 from optim.deepmemory import DeepMemory
 
 
-from metrics                 import AverageMeter, accuracy
-from models.model_isda       import CustomModel, Full_layer
-from loss_func.cross_entropy import CrossEntropyLoss
+from metrics                          import AverageMeter, accuracy
+from models.efficientnet_pytorch_isda import EfficientNet_isda
+from loss_func.cross_entropy          import CrossEntropyLoss
 
 parser = argparse.ArgumentParser(description='Data Augmentation Techniques on CIFAR10 with PyTorch.')
 # Data Augmentation Techniques
@@ -119,13 +120,35 @@ test_loader = torch.utils.data.DataLoader(test_data,
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = CustomModel()
+
+
+# Explicit fully connected layer
+class Full_layer(torch.nn.Module):
+    '''explicitly define the full connected layer'''
+
+    def __init__(self, num_feature, num_classes):
+        super(Full_layer, self).__init__()
+        self.num_classes = num_classes
+        self.fc = nn.Linear(num_feature, num_classes)
+
+    def forward(self, x):
+        x = self.fc(x)
+        return x
+
+model = EfficientNet_isda.from_name('efficientnet-b4')
+model_weight = './checkpoint/efficientnet-b4-6ed6700e.pth'
+
+# load pre-trained weights
+state_dict = model_zoo.load_url(model_weight)
+state_dict.pop('_fc.weight')
+state_dict.pop('_fc.bias')
+model.load_state_dict(state_dict, strict=False)
+
+num_feature = 1792
+num_classes = len(classes)
 model = model.to(device)
 model = torch.nn.DataParallel(model)
-
-feature_num = 192*4*4
-num_classes = len(classes)
-fc = Full_layer(feature_num, num_classes).to(device)
+fc = Full_layer(num_feature=num_feature, num_classes=len(classes)).to(device)
 fc = torch.nn.DataParallel(fc)
 
 # train from start
@@ -133,7 +156,7 @@ best_top1 = 0
 start_epoch = 0
 
 # criterion and optimizer
-isda_criterion = ISDALoss(feature_num, num_classes)
+isda_criterion = ISDALoss(num_feature, num_classes)
 ce_criterion = CrossEntropyLoss(smooth_eps=0.1).to(device)
 
 if args.adamod:

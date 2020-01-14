@@ -12,4 +12,5 @@ from optim.radam        import RAdam
 from loss_func.cross_entropy import CrossEntropyLoss
 from models.model import CustomModel
 from models.model_isda import CustomModel, Full_layer
-
+from models.efficientnet_pytorch import EfficientNet
+from models.efficientnet_pytorch_isda import EfficientNet_isda

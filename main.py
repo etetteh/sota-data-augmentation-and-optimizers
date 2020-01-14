@@ -27,9 +27,9 @@ from optim.radam      import RAdam
 from optim.lookahead  import Lookahead 
 from optim.deepmemory import DeepMemory
 
-from models.model            import CustomModel
-from metrics                 import AverageMeter, accuracy
-from loss_func.cross_entropy import CrossEntropyLoss
+from models.efficientnet_pytorch import EfficientNet
+from metrics                     import AverageMeter, accuracy
+from loss_func.cross_entropy     import CrossEntropyLoss
 
 parser = argparse.ArgumentParser(description='Data Augmentation Techniques on CIFAR10 with PyTorch.')
 # Data Augmentation Techniques
@@ -115,7 +115,8 @@ test_loader = torch.utils.data.DataLoader(test_data,
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = CustomModel()
+
+model = EfficientNet.from_pretrained('efficientnet-b4', num_classes=10)
 model = model.to(device)
 model = torch.nn.DataParallel(model)
 
