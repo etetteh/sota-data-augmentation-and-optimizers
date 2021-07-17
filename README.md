@@ -5,7 +5,7 @@ This repository contains some of the latest data augmentation techniques and opt
 The main update was adding [efficient-b4](https://github.com/lukemelas/EfficientNet-PyTorch/) described in [Efficient](https://arxiv.org/abs/1905.11946) and made it the main model for the bash scripts. The sample notebooks were modified to make use of the custom model. Also added the link to the pre-trained weights of efficientnet-b4, located in [checkpoint](https://github.com/etetteh/sota-data-augmentation-and-optimizers/tree/master/checkpoint)
 
 ## Data Augmentation Technique
-This repository implements the following data augmentation techniques. The links to the pappers and and pytorch code references are associated accordingly (some with slight modification).
+This repository implements the following data augmentation techniques. The links to the papers and and pytorch code references are associated accordingly (some with slight modification).
 
 CutOut ([Improved Regularization of Convolutional Neural Networks with Cutout](https://arxiv.org/pdf/1708.04552.pdf), [code](https://github.com/uoguelph-mlrg/Cutout))
 
@@ -43,7 +43,7 @@ I made use of cross entropy loss with label smoothing as implemented [here](http
 
 ## Implementation
 ### Sample Notebook
-The [sample_notenook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/sample_notebook.ipynb) and [isda_sample_notebook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/isda_sample_notebook.ipynb) contains code to play with the various augmentaion and optimizer techniques for non-isda and isda implementations. Simply comment or uncomment appropriate lines.
+The [sample_notenook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/sample_notebook.ipynb) and [isda_sample_notebook.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/isda_sample_notebook.ipynb) contains code to play with the various augmentation and optimizer techniques for non-isda and isda implementations. Simply comment or uncomment appropriate lines.
 
 The [train.ipynb](https://github.com/etetteh/sota-data-augmentation-and-optimizers/blob/master/train.ipynb) contains sample bash scripts.
 
